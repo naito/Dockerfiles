@@ -15,4 +15,4 @@ ENV PASSWORD Dont make this your default
 ADD notebook.sh /
 RUN chmod u+x /notebook.sh
 
-CMD [&quot;/notebook.sh&quot;]
+CMD ["/notebook.sh"]
