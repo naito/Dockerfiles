@@ -1,7 +1,7 @@
 # Installs E-Cell3 with IPython Notebook
 # Another Docker container should build from this one to get services like the notebook
 
-FROM ecell3-ipython
+FROM naito/ecell3-ipython
 
 MAINTAINER Yasuhiro Naito <ynaito@e-cell.org>
 
