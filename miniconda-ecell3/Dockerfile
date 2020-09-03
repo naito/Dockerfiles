@@ -24,15 +24,8 @@ RUN find /opt/conda/ -follow -type f -name '*.a' -delete
 RUN find /opt/conda/ -follow -type f -name '*.js.map' -delete
 RUN /opt/conda/bin/conda clean -ay
 
-CMD [ "/bin/bash" ]
-
 ENV DEBIAN_FRONTEND noninteractive
 
-# Make sure apt is up to date
-RUN apt-get update
-RUN apt-get upgrade -y
-
-# RUN apt-get install -y -q build-essential make autoconf libtool automake gcc g++ zlib1g-dev git
 RUN apt-get install -y -q build-essential make gcc g++ zlib1g-dev git
 
 RUN conda install matplotlib notebook
@@ -41,5 +34,8 @@ RUN conda install autoconf libtool automake
 RUN cd /tmp; git clone git://github.com/ecell/ecell3
 RUN cd /tmp/ecell3; sh autogen.sh && ./configure --prefix=$CONDA_PREFIX --disable-gui && make && make install
 
-#VOLUME /ecell3
-#WORKDIR /ecell3
+RUN mkdir /notebooks && cd /notebooks \
+ && cp -r /tmp/ecell3/samples ./sample_models
+
+RUN echo alias ecell3-notebook='"'ecell3-ipython notebook --notebook-dir=/notebooks --ip='*' --port=8888 --no-browser  --allow-root'"' >> ~/.bashrc
+CMD [ "/bin/bash" ]
