@@ -35,4 +35,4 @@ $ docker run -it -p 8888:8888 ecell3
         http://localhost:8888/?token=4aa99a77f52651e466fc39a53e7e680768652da48086781d
 ```
 
-* Copy the URL in the last line, and paste it your web browser.
+* Copy the URL in the last line, and paste it to your web browser.
