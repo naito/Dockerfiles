@@ -39,5 +39,5 @@ RUN cd /tmp/ecell3; sh autogen.sh && \
 RUN mkdir /notebooks && cd /notebooks \
  && cp -r /tmp/ecell3/samples ./sample_models
 
-RUN echo alias ecell3-notebook='"'ecell3-ipython notebook --notebook-dir=/notebooks --ip='*' --port=8888 --no-browser  --allow-root'"' >> ~/.bashrc
+RUN echo alias ecell3-notebook='"'ecell3-jupyter notebook --notebook-dir=/notebooks --ip='*' --port=8888 --no-browser  --allow-root'"' >> ~/.bashrc
 CMD [ "/bin/bash" ]
