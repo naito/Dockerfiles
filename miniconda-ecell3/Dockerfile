@@ -32,7 +32,7 @@ RUN conda install matplotlib notebook && \
     conda install autoconf libtool automake
 RUN cd /tmp; git clone git://github.com/naito/ecell3
 RUN cd /tmp/ecell3; sh autogen.sh && \
-    ./configure --prefix=$CONDA_PREFIX --disable-gui && \
+    ./configure --prefix=/opt/conda --disable-gui && \
     make && \
     make install
 
